@@ -7,8 +7,6 @@ Real-time color detection using webcam feed. Detects specified colors and draws 
 - Real-time color detection from webcam
 - Bounding box visualization
 - Customizable target colors
-- HSV color space processing
-- Easy to use and modify
 
 ## Available Colors
 
