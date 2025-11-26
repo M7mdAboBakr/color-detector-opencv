@@ -2,13 +2,21 @@ import cv2
 import numpy as np
 from PIL import Image
 from util import get_limits
+import webcolors
 
-yellow = [0, 255, 255] # Yellow in BGR
+# color name to BGR
+def name_to_bgr(color_name):
+    rgb = webcolors.name_to_rgb(color_name)   # returns (R, G, B)
+    return [rgb.blue, rgb.green, rgb.red]     # convert RGB → BGR
+
+
+yellow = name_to_bgr("yellow") # Yellow in BGR
 webcam = cv2.VideoCapture(0)
 
 while True:
     ret, frame = webcam.read()
 
+    frame = cv2.resize(frame, (640, 480))
     # convert to HSV
     frame_hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
